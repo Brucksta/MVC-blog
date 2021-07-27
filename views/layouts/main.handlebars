@@ -15,19 +15,23 @@
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         <span role="img" aria-label="money"></span>
-        <a href="/">Welcome to the MVC Blog!</a>
+        <a href="/" class="text-3xl font-weight: 800">Welcome to the MVC Blog!</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">Dashboard</a> |
+        <a href="/profile" >Dashboard</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login" class="text-3xl font-weight: 800 mr-40 text-red-500">login HERE</a>
         {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
+      {{#if logged_in}}
+      {{else}}
+      <h1 class="text-3xl font-weight: 800 text-red-500">Please Log in</h1>
+      {{/if}}
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
